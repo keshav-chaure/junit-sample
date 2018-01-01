@@ -3,12 +3,15 @@ package com.kc.service;
 import com.kc.dao.OrderDAO;
 import com.kc.dto.Order;
 import com.kc.exception.OrderException;
+import org.apache.log4j.spi.LoggerFactory;
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class OrderBOImpl implements OrderBO {
     OrderDAO orderDAO;
-
+    //private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(Message.class);
 
     public int placeOrder(Order order) throws OrderException {
         int orderId = 0;
