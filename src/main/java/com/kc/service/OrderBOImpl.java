@@ -1,17 +1,20 @@
 package com.kc.service;
 
+
 import com.kc.dao.OrderDAO;
+import com.kc.dao.OrderDAOImpl;
 import com.kc.dto.Order;
 import com.kc.exception.OrderException;
-import org.apache.log4j.spi.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
-import java.util.logging.Logger;
+
 
 public class OrderBOImpl implements OrderBO {
-    OrderDAO orderDAO;
+    OrderDAO orderDAO=new OrderDAOImpl();
     //private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
-    private static final Logger logger = LoggerFactory.getLogger(Message.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderBOImpl.class);
 
     public int placeOrder(Order order) throws OrderException {
         int orderId = 0;
@@ -20,6 +23,9 @@ public class OrderBOImpl implements OrderBO {
         } catch (SQLException sqle) {
             throw new OrderException(sqle);
         }
+        logger.info("order placed for order id: {}", orderId);
+        logger.debug("Debugging...");
+
         return orderId;
     }
 

@@ -1,6 +1,10 @@
 package com.kc;
 
 import com.kc.dto.FileBean;
+import com.kc.dto.Order;
+import com.kc.exception.OrderException;
+import com.kc.service.OrderBO;
+import com.kc.service.OrderBOImpl;
 
 import java.util.ArrayList;
 
@@ -15,6 +19,14 @@ public class App
 {
     public static void main( String[] args )
     {
+        OrderBO orderBO=new OrderBOImpl();
+        Order order=new Order(1,1);
+
+        try {
+            orderBO.placeOrder(order);
+        } catch (OrderException e) {
+            e.printStackTrace();
+        }
 
         System.out.println( "Hello World!" );
         ArrayList<FileBean> listFb=new ArrayList<FileBean>();

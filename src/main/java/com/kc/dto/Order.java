@@ -4,6 +4,14 @@ public class Order {
     int id;
     int status;
 
+    public Order() {
+    }
+    //status : 1=order placed, 0=not placed
+    public Order(int id, int status) {
+        this.id = id;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
