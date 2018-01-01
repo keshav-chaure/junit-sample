@@ -18,6 +18,8 @@ public class OrderBOImpl implements OrderBO {
 
     public int placeOrder(Order order) throws OrderException {
         int orderId = 0;
+        logger.info("order placed for order id: {}", orderId);
+        logger.debug("Debugging...");
         try {
             orderId = orderDAO.create(order);
         } catch (SQLException sqle) {
