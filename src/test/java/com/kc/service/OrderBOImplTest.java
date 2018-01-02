@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 
 public class OrderBOImplTest {
 
-    private static final int ANY_ORDER_ID =123;
+    private static final int ANY_ORDER_ID = 123;
     @InjectMocks
     OrderBO orderBO = new OrderBOImpl();
 
@@ -71,15 +71,15 @@ public class OrderBOImplTest {
     @Test(expected = OrderException.class)
     public void placeOrderShouldReturnException() throws SQLException, OrderException {
         Order order = new Order();
-       when(orderDAO.create(order)).thenThrow(SQLException.class);
-        int orderId=orderBO.placeOrder(order);
+        when(orderDAO.create(order)).thenThrow(SQLException.class);
+        int orderId = orderBO.placeOrder(order);
 
     }
 
 
     @Test
     public void cancelOrderShouldCancelOrder() throws OrderException, SQLException {
-        int orderId=123;
+        int orderId = 123;
         when(orderDAO.delete(orderId)).thenReturn(ANY_ORDER_ID);
 
         int actualOrderId = orderBO.cancelOrder(orderId);
@@ -91,7 +91,7 @@ public class OrderBOImplTest {
 
     @Test
     public void cancelOrderShouldNotCancelOrder() throws OrderException, SQLException {
-        int orderId=123;
+        int orderId = 123;
         when(orderDAO.delete(orderId)).thenReturn(0);
 
         int actualOrderId = orderBO.cancelOrder(orderId);
@@ -110,7 +110,7 @@ public class OrderBOImplTest {
 
     @Test
     public void deleteOrderShouldCancelOrder() throws OrderException, SQLException {
-        int orderId=123;
+        int orderId = 123;
         when(orderDAO.delete(orderId)).thenReturn(ANY_ORDER_ID);
 
         int actualOrderId = orderBO.deleteOrder(orderId);
@@ -122,7 +122,7 @@ public class OrderBOImplTest {
 
     @Test
     public void deleteOrderShouldNotCancelOrder() throws OrderException, SQLException {
-        int orderId=123;
+        int orderId = 123;
         when(orderDAO.delete(orderId)).thenReturn(0);
 
         int actualOrderId = orderBO.deleteOrder(orderId);
@@ -134,9 +134,9 @@ public class OrderBOImplTest {
 
     @Test(expected = OrderException.class)
     public void deleteOrderShouldReturnException() throws SQLException, OrderException {
-        int orderId=112;
+        int orderId = 112;
         when(orderDAO.delete(orderId)).thenThrow(SQLException.class);
-        int actualOrderId=orderBO.deleteOrder(orderId);
+        int actualOrderId = orderBO.deleteOrder(orderId);
 
     }
 }

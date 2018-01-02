@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 
 public class OrderBOImpl implements OrderBO {
-    OrderDAO orderDAO=new OrderDAOImpl();
+    OrderDAO orderDAO = new OrderDAOImpl();
     //private final static Logger LOGGER = Logger.getLogger(MyLogger.class.getName());
     private static final Logger logger = LoggerFactory.getLogger(OrderBOImpl.class);
 
@@ -50,4 +50,6 @@ public class OrderBOImpl implements OrderBO {
         }
         return deleteOrder;
     }
+
+
 }
