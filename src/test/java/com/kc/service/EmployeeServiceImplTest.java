@@ -1,21 +1,32 @@
 package com.kc.service;
 
 import com.kc.dao.EmployeeDao;
+import com.kc.dao.EmployeeDaoImpl;
 import com.kc.dto.Employee;
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import static org.mockito.Mockito.*;
+import org.mockito.MockitoAnnotations;
+
+import static org.mockito.Mockito.verify;
+
 ;
 
 public class EmployeeServiceImplTest extends TestCase {
     @Mock
-    private EmployeeDao employeeDao;
+    private EmployeeDao employeeDao = new EmployeeDaoImpl();
 
     @InjectMocks
-    private EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
+    private EmployeeService employeeServiceImpl = new EmployeeServiceImpl();
+
+    @Before
+    public void setUp() throws Exception {
+        MockitoAnnotations.initMocks(this);
+        System.out.println("setup");
+    }
 
     @Test
     public void testEmployee() {

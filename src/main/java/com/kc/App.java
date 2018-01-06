@@ -3,53 +3,31 @@ package com.kc;
 import com.kc.exception.OrderException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
-
-import static java.util.Collections.sort;
 
 /**
  * Hello world!
  */
-@Component
+
 public class App {
 
-    //@Autowired
- //   private static OrderBO orderBO;
-    //private static Order order;
+
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
-    //  private String orderBO;
-    @Autowired
-   // public void setOrderBO(OrderBO orderBO) {
-  //      this.orderBO = orderBO;
-  //  }
-
-    /*  public void setOrderBO(OrderBO orderBO) {
-          this.orderBO = orderBO;
-      }
-
-      public OrderBO getOrderBO() {
-          return orderBO;
-      }
-      */
-    //static OrderBO orderBO = new OrderBOImpl();
     public static void main(String[] args) throws OrderException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "Spring-Module.xml");
-        MyXMLApplication app = context.getBean(MyXMLApplication.class);
 
-        app.processMessage();
+        /*
+        EmployeeService app = context.getBean(EmployeeServiceImpl.class);
+        app.insertEmployeeUsingEmployeeId("one");
+        */
+        MyXMLApplicationClient client = context.getBean(MyXMLApplicationClient.class);
+        client.processRequests();
+
 
         // close the context
         context.close();
-
-
-
-
-
-
 
 
 

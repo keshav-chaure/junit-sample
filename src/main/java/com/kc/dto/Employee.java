@@ -4,6 +4,14 @@ public class Employee {
     String empName;
     String empId;
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empName='" + empName + '\'' +
+                ", empId='" + empId + '\'' +
+                '}';
+    }
+
     public String getEmpName() {
         return empName;
     }

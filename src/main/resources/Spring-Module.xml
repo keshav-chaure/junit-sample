@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+">
+
+    <!-- Enable Annotation based configuration -->
+    <context:annotation-config />
+    <context:component-scan base-package="com.kc.service,com.kc.dao,com.kc"/>
 
 
+   <!-- <bean name="employeeAutowiredByConstructorService" class="com.journaldev.spring.autowiring.service.EmployeeAutowiredByConstructorService" /> -->
 
+
+<!--
     <bean id="orderBO" class="com.kc.service.OrderBOImpl">
     </bean>
 
     <bean id="Main" class="com.kc.MyXMLApplication">
         <property name="orderBO" ref="orderBO" />
+        <property name="employeeService" ref="employeeService" />
     </bean>
+
+    <bean id="employeeDao" class="com.kc.dao.EmployeeDaoImpl">
+    </bean>
+
+    <bean id="employeeService" class="com.kc.service.EmployeeServiceImpl">
+        <property name="employeeDao" ref="employeeDao" />
+    </bean>
+-->
 
 </beans>
