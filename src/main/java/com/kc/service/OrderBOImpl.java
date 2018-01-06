@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+//Lighthouse.jpg https://s3.ap-south-1.amazonaws.com/kc-s3bucket123/Lighthouse.jpg
 import java.sql.SQLException;
 
 @Component
@@ -35,11 +35,11 @@ public class OrderBOImpl implements OrderBO {
 
     public int cancelOrder(int orderId) throws OrderException {
         int canceledOrderId = 0;
-        /*try {
-//            canceledOrderId = orderDAO.delete(orderId);
+        try {
+            canceledOrderId = orderDAO.delete(orderId);
         } catch (SQLException sqle) {
             throw new OrderException(sqle);
-        }*/
+        }
         return canceledOrderId;
     }
 
