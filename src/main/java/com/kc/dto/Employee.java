@@ -1,8 +1,19 @@
 package com.kc.dto;
 
-public class Employee {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "Employee")
+public class Employee implements Serializable {
+
+    @Column(name="name")
     String empName;
-    String empId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int empId;
 
     @Override
     public String toString() {
@@ -22,11 +33,11 @@ public class Employee {
 
 
 
-    public String getEmpId() {
+    public int getEmpId() {
         return empId;
     }
 
-    public void setEmpId(String empId) {
+    public void setEmpId(int empId) {
         this.empId = empId;
     }
 
