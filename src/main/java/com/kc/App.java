@@ -24,7 +24,7 @@ public class App {
         */
         MyXMLApplicationClient client = context.getBean(MyXMLApplicationClient.class);
         client.processRequests();
-        client.uploadToS3();
+       // client.uploadToS3();
 
 
         // close the context

@@ -44,10 +44,10 @@ public class EmployeeServiceImplTest extends TestCase {
         ArgumentCaptor<Employee> captor = ArgumentCaptor.forClass(Employee.class);
 
         Employee emp = new Employee();
-        emp.setEmpId("emp1");
+        emp.setEmpId(123);
         emp.setEmpName("testEmp");
 
-        employeeServiceImpl.insertEmployeeUsingEmployeeId("emp1");
+        employeeServiceImpl.insertEmployeeUsingEmployeeId(123);
 
         // here we dont have instance of employee object(since it is created in
         // the service class

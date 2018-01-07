@@ -5,15 +5,18 @@ import com.kc.dto.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
+@Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeDao employeeDao;
+
     private static final Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
 
     public void insertEmployee(Employee employee) {
@@ -38,9 +41,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void getAllEmployees() {
         logger.info("in EmployeeServiceImpl > getAllEmployee() ...");
         List<Employee> employees = employeeDao.getAllEmployees();
+        logger.info("List of Employees");
         for (Employee employee : employees) {
-            System.out.println(employee.toString());
-            logger.info("fetched Employee {}",employee.getEmpId());
+            logger.info("fetched Employee id {}", employee.getEmpId());
+            logger.info("fetched Employee {}",employee.toString());
         }
     }
 
