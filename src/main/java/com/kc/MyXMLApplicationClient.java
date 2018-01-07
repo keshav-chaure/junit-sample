@@ -39,7 +39,7 @@ public class MyXMLApplicationClient {
     private void placeOrder() throws OrderException {
 
         System.out.println("in process "+orderBO);
-        Order order=new Order(1,0);
+        Order order=new Order(11,0);
         logger.info("In Client placeing order..{}",order.getId());
         logger.debug("In Client placeing order..{}",order.getId());
         this.orderBO.placeOrder(order);

@@ -1,7 +1,14 @@
 package com.kc.util;
 
 
-    @Repository
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Repository
     public class HibernateUtil {
 
         @Autowired

@@ -5,7 +5,7 @@ import com.kc.dto.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    void insertEmployeeUsingEmployeeId(String employeeId);
+    void insertEmployeeUsingEmployeeId(int employeeId);
 
     void insertEmployee(Employee emp);
 
