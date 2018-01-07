@@ -1,11 +1,18 @@
-# JUnit and Mokito sample unit test code
+# All in One with JUnit and Mokito sample unit test code.
 
 ##### To read more on logger : https://logback.qos.ch/manual/configuration.html
 ##### 1. Logback capablity. 
 ##### 2. Spring dependency.
 ##### 2. Spring xml and java configuration. 
 ##### 3. JUnit and Mokito.
-##### 3. AWS s3 upload behevior.
+##### 4. AWS s3 upload behevior.
+##### 5. ORM support (Hibernate 4).
+
+
+
+
+
+
 
 ###### Argument Capture explained taken form :http://www.javainuse.com/spring/spring-boot-argumentcaptor
 
