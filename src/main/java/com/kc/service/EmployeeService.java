@@ -14,4 +14,5 @@ public interface EmployeeService {
     void getAllEmployees();
 
     void getEmployeeById(String empid);
+    void addEmployee(Employee e)throws Exception;
 }

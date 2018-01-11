@@ -2,6 +2,7 @@ package com.kc.service;
 
 import com.kc.dao.EmployeeDao;
 import com.kc.dao.EmployeeDaoImpl;
+import com.kc.domain.EmployeeMapper;
 import com.kc.dto.Employee;
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -12,15 +13,18 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 ;
 
 public class EmployeeServiceImplTest extends TestCase {
     @Mock
-    private EmployeeDao employeeDao = new EmployeeDaoImpl();
+    private EmployeeDao employeeDao;
 
     @InjectMocks
-    private EmployeeService employeeServiceImpl = new EmployeeServiceImpl();
+    private EmployeeService employeeServiceImpl ;
+    @Mock
+    private EmployeeMapper employeeMapper;
 
     @Before
     public void setUp() throws Exception {
@@ -60,6 +64,15 @@ public class EmployeeServiceImplTest extends TestCase {
         Employee actual = captor.getValue();
         assertEquals(emp.getEmpName(), actual.getEmpName());
         assertEquals(emp.getEmpId(), actual.getEmpId());
+
+    }
+
+    @Test
+    public void shouldAddEmployee() throws Exception {
+        Employee e=new Employee();
+        when(employeeMapper.mapToDomainEmp(e)).thenReturn(e);
+
+        employeeServiceImpl.addEmployee(e);
 
     }
 
