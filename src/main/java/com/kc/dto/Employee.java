@@ -1,3 +1,4 @@
+
 package com.kc.dto;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.io.Serializable;
 @Table(name = "Employee")
 public class Employee implements Serializable {
 
-    @Column(name="name")
+    @Column(name = "name")
     String empName;
 
     @Id
@@ -31,8 +32,6 @@ public class Employee implements Serializable {
         this.empName = empName;
     }
 
-
-
     public int getEmpId() {
         return empId;
     }
@@ -40,6 +39,4 @@ public class Employee implements Serializable {
     public void setEmpId(int empId) {
         this.empId = empId;
     }
-
-
 }

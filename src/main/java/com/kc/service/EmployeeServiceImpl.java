@@ -3,6 +3,7 @@ package com.kc.service;
 import com.kc.dao.EmployeeDao;
 import com.kc.domain.EmployeeMapper;
 import com.kc.dto.Employee;
+import com.kc.validators.DataValidation;
 import com.kc.validators.DataValidationList;
 import com.kc.validators.EmployeeValidator;
 import org.slf4j.Logger;
@@ -42,15 +43,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeDao.insertEmployee(emp);
     }
 
-    public Employee addEmployee(Employee emp) throws Exception {
-
+    public void addEmployee(Employee emp) throws Exception {
         Employee DomainEmp=employeeMapper.mapToDomainEmp(emp);
-        List<DataValidationList> validation=employeeValidator.validate(DomainEmp);
+        List<DataValidation> validation=employeeValidator.validate(DomainEmp);
         if(!validation.isEmpty()){
             throw new Exception();
         }
-
-        return new Employee();
+        employeeDao.addEmployee(emp);
     }
 
 

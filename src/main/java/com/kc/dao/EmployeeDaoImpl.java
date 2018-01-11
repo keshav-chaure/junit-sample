@@ -38,4 +38,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Employee getEmployeeById(String empid) {
         return null;
     }
+
+    @Override
+    public void addEmployee(Employee e) {
+        hibernateUtil.create(e);
+    }
 }
