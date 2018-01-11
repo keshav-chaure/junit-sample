@@ -1,7 +1,10 @@
 package com.kc.service;
 
 import com.kc.dao.EmployeeDao;
+import com.kc.domain.EmployeeMapper;
 import com.kc.dto.Employee;
+import com.kc.validators.DataValidationList;
+import com.kc.validators.EmployeeValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeDao employeeDao;
 
+    @Autowired
+    EmployeeMapper employeeMapper;
+
+
+
+
     private static final Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
+    private EmployeeValidator employeeValidator;
 
     public void insertEmployee(Employee employee) {
         //    employeeDao.insertEmployee(employee);
@@ -30,6 +40,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         emp.setEmpName("testEmp");
         System.out.println(emp);
         employeeDao.insertEmployee(emp);
+    }
+
+    public Employee addEmployee(Employee emp) throws Exception {
+
+        Employee DomainEmp=employeeMapper.mapToDomainEmp(emp);
+        List<DataValidationList> validation=employeeValidator.validate(DomainEmp);
+        if(!validation.isEmpty()){
+            throw new Exception();
+        }
+
+        return new Employee();
     }
 
 

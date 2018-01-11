@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Repository
@@ -19,11 +20,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     public void insertEmployee(Employee emp) {
         System.out.println("Employee inserted");
+        hibernateUtil.create(emp);
 
     }
 
     public void insertEmployees(List<Employee> emps) {
-
+        for(Employee emp : emps){
+            insertEmployee(emp);
+        }
     }
 
     public List<Employee> getAllEmployees() {
